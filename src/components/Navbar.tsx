@@ -394,6 +394,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       )}
 
       {/* Mobile Bottom Navigation Bar (Docked at the bottom on mobile for thumb-friendly reach) */}
+      {!(currentUser && currentTab === 'landing') && (
       <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-2px_12px_rgba(0,0,0,0.06)] md:hidden">
         <div className={`grid ${currentUser ? 'grid-cols-5' : 'grid-cols-4'} h-16 items-center px-1 max-w-lg mx-auto`}>
           {/* 1. Beranda */}
@@ -426,7 +427,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <Users className={`w-5 h-5 ${currentTab === 'collaborators' ? 'stroke-[2.5]' : 'stroke-[1.8]'}`} />
-              <span className="text-[10px]">Rekan</span>
+              <span className="text-[10px]">Cari Anggota</span>
             </button>
           )}
 
@@ -480,6 +481,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </div>
       </nav>
+      )}
     </>
   );
 };
