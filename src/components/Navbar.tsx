@@ -394,7 +394,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       )}
 
       {/* Mobile Bottom Navigation Bar (Docked at the bottom on mobile for thumb-friendly reach) */}
-      {!(currentUser && currentTab === 'landing') && (
+      {currentTab !== 'landing' && (
       <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-2px_12px_rgba(0,0,0,0.06)] md:hidden">
         <div className={`grid ${currentUser ? 'grid-cols-5' : 'grid-cols-4'} h-16 items-center px-1 max-w-lg mx-auto`}>
           {/* 1. Beranda */}
@@ -419,18 +419,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="text-[10px]">Karya</span>
           </button>
 
-          {currentUser && (
-            <button
-              onClick={() => setCurrentTab('collaborators')}
-              className={`flex flex-col items-center justify-center gap-1 py-1 transition-colors ${
-                currentTab === 'collaborators' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'
-              }`}
-            >
-              <Users className={`w-5 h-5 ${currentTab === 'collaborators' ? 'stroke-[2.5]' : 'stroke-[1.8]'}`} />
-              <span className="text-[10px]">Cari Anggota</span>
-            </button>
-          )}
-
           {/* Center Action: Unggah Proyek Baru */}
           <div className="flex flex-col items-center justify-center">
             <button
@@ -449,6 +437,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <span className="text-[9px] font-bold text-blue-600 mt-0.5">Unggah</span>
           </div>
+
+          {currentUser && (
+            <button
+              onClick={() => setCurrentTab('collaborators')}
+              className={`flex flex-col items-center justify-center gap-1 py-1 transition-colors ${
+                currentTab === 'collaborators' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <Users className={`w-5 h-5 ${currentTab === 'collaborators' ? 'stroke-[2.5]' : 'stroke-[1.8]'}`} />
+              <span className="text-[10px]">Cari Anggota</span>
+            </button>
+          )}
 
           {/* Akun Siswa / Login */}
           <button
