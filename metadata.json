@@ -1,0 +1,6 @@
+{
+  "name": "ProjectHub - Platform Portofolio & Kolaborasi Siswa",
+  "description": "Wadah kolaborasi karya inovatif dan portofolio digital siswa SMK/SMA dengan autentikasi 2FA dan penyimpanan database terintegrasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
